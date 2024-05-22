@@ -6,35 +6,36 @@ bool asalMi(int sayi) {
     if (sayi < 2) {
         return false;
     }
-    if (sayi == 2) {
+    if (sayi == 2 || sayi==3) {
         return true;
     }
-    //çift sayilari direk eledim
-    if (sayi % 2 == 0) {
+    //Ã§ift sayilari ve 3 e bÃ¶lÃ¼nleri eledim
+    if (sayi % 2 == 0|| sayi%3==0) {
         return false;
     }
-    /*burda yapmak istediðim sayinin karekökünü alarak iþlem hacmini kýsýtlamak
-	(mesela(kök)64=8 sýnýr 8 oldu ve sadece sekizin bölenlerini kontrol ediyorum*/
-    int sinir = (int)sqrt(sayi);
+    /*burda yapmak istediÄŸim sayinin karekÃ¶kÃ¼nÃ¼ alarak iÅŸlem hacmini kÄ±sÄ±tlamak
+	(mesela(kÃ¶k)64=8 sÄ±nÄ±r 8 oldu ve sadece sekizin bÃ¶lenlerini kontrol ediyorum*/
+    int sinir=(int)sqrt(sayi);
     int i;
-	for ( i = 3; i <= sinir; i += 2) {
-        if (sayi % i == 0) {
-            return false;
-        }
-    }
+    for(i=5;i<=sinir;i+=6){
+    	if(sayi%i==0|| sayi%(i+2)==0){
+    		return false;
+		}
+	}
+	
     return true;
 }
 
 int main(int i) {
     int ilkSayi, sonSayi;
     
-    printf("Ýlk sayýyý giriniz: ");
+    printf("Ä°lk sayÄ±yÄ± giriniz: ");
     scanf("%d", &ilkSayi);
     
-    printf("Son sayýyý giriniz: ");
+    printf("Son sayÄ±yÄ± giriniz: ");
     scanf("%d", &sonSayi);
     
-    printf("Asal sayýlar:\n");
+    printf("Asal sayÄ±lar:\n");
     for (i = ilkSayi; i <= sonSayi; i++) {
         if (asalMi(i)) {
             printf("%d ", i);
@@ -43,4 +44,3 @@ int main(int i) {
     
     return 0;
 }
-
