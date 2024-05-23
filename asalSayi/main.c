@@ -17,6 +17,7 @@ bool asalMi(int sayi) {
 	(mesela(kök)64=8 sınır 8 oldu ve sadece sekizin bölenlerini kontrol ediyorum*/
     int sinir=(int)sqrt(sayi);
     int i;
+	//2 ve 3 , 6nın katları olduğu için daha büyük sayıları kontrol hızını artırıyor
     for(i=5;i<=sinir;i+=6){
     	if(sayi%i==0|| sayi%(i+2)==0){
     		return false;
